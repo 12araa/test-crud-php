@@ -38,7 +38,9 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
         <td><?= $mhs['email']; ?></td>
         <td><?= $mhs['jurusan']; ?></td>
         <td>
-          <a href="">ubah</a> | <a href="">hapus</a>
+          <a href="ubah.php?id=<?= $mhs['id']; ?>">ubah</a> | <a href="hapus.php?id=<?= $mhs['id']; ?>" onclick="return confirm
+          ('apakah anda yakin?')" ;>hapus</a>
+
         </td>
       </tr>
     <?php endforeach; ?>

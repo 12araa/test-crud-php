@@ -9,7 +9,7 @@ if (isset($_POST['tambah'])) {
           </script>";
   } else {
     "Data gagal ditambahkan!";
-  };
+  }
 }
 
 ?>

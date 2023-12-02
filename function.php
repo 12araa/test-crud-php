@@ -35,7 +35,37 @@ function tambah($data)
             VALUES
             (null, '$nim', '$nama', '$email', '$jurusan');
           ";
-  mysqli_query($conn, $query);
-  echo mysqli_error($conn);
+  mysqli_query($conn, $query) or die(mysqli_error($conn));
+  return mysqli_affected_rows($conn);
+}
+
+function hapus($id)
+{
+  $conn = koneksi();
+  mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id") or die(mysqli_error($conn));
+  return mysqli_affected_rows($conn);
+}
+
+
+function ubah($data)
+{
+  $conn = koneksi();
+
+  $id = $data['id'];
+
+  $nim = htmlspecialchars($data['nim']);
+  $nama = htmlspecialchars($data['nama']);
+  $email = htmlspecialchars($data['email']);
+  $jurusan = htmlspecialchars($data['jurusan']);
+
+
+
+  $query = "UPDATE mahasiswa SET
+              nim = '$nim',
+              nama = '$nama',
+              email = $email',
+              jurusan = '$jurusan'
+            WHERE id = $id";
+  mysqli_query($conn, $query) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
