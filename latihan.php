@@ -1,22 +1,6 @@
 <?php
-//koneksi ke db
-$conn = mysqli_connect('localhost', 'root', '', 'crudphp');
-
-//query isi tabel 
-$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-
-
-// ubah data ke dalam array
-$rows = [];
-while ($row = mysqli_fetch_assoc($result)) {
-  $rows[] = $row;
-}
-
-//tampung ke variabel mahasiswa
-$mahasiswa = $rows;
-
-
-
+require 'function.php';
+$mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 
 <!DOCTYPE html>
